@@ -9,11 +9,12 @@ gray.ubank365.com ahtest.ubank365.com 跨域，跟域名一致但是子域名不
 跨域情况下是不能通过JS或者AJAX请求获取到数据的，但是在html中img，iframe和script可以通过src属性请求到其他服务器上的数据。JSONP实质就是在html中动态添加script标签，通过设置src属性获取非同源网站的执行脚本。
 只支持get请求。
 
-crossorigin="anonymous"不需要验证
-当使用验证模式的时候
-[crossorigin="use-credentials"](./script.png)
-这个时候需要后端（代理）设置允许跨域的配置
-[后端设置跨域策略](./cross.png)
+crossorigin="anonymous"不需要验证  
+当使用验证模式的时候  
+![crossorigin="use-credentials"](https://github.com/Namicici/web-tech/blob/master/script.png)  
+这个时候需要后端（代理）设置允许跨域的配置否则不允许跨域  
+![后端设置跨域策略否则不允许跨域](https://github.com/Namicici/web-tech/blob/master/cross.png)   
+![后端设置](https://github.com/Namicici/web-tech/blob/master/serverConfig.png)  
 
 # CORS  
 
