@@ -1,3 +1,5 @@
-Namicici's blog
+# Namicici's blog  
 
-Web技术相关的学习和总结以及资料的收集
+## Web技术相关的学习和总结以及资料的收集  
+
+[跨域问题](https://github.com/Namicici/web-tech/blob/master/crossDomain.md)  
