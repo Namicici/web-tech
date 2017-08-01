@@ -30,15 +30,17 @@
 ![圆环坐标尺寸](https://github.com/Namicici/web-tech/blob/master/pie.png)  
 根据以上数据我们可以获得两个圆的起点坐标，圆心坐标
 4. 根据传递过来的数据我们可以得出每一份数据再全部数据中所占的比例，也就是角度；已知圆心，半径和偏移角度，可以计算出目标点坐标。
-`endPoint.x = e.x + r * Math.sin(a * Math.PI / 180)  
-endPoint.y = e.y - r * Math.cos(a * Math.PI / 180)
+`  
+endPoint.x = e.x + r * Math.sin(a * Math.PI / 180)  
+endPoint.y = e.y - r * Math.cos(a * Math.PI / 180)  
 `
 5. 动画  
 animate'元素用于随着时间的推移对单个属性或属性进行动画化  
 所以我们需要对属性做动画，那么对什么属性做动画呢？  
 ![stash](https://github.com/Namicici/web-tech/blob/master/stash.png)  
 path有属性stroke-dasharray和stroke-dashoffset   
-`<?xml version="1.0" encoding="UTF-8"?>  
+`  
+<?xml version="1.0" encoding="UTF-8"?>  
 <svg width="224px" height="223px" viewBox="0 0 224 223" version="1.1"   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">  
     <title>stash</title>  
     <desc>Created with Sketch.</desc>  
@@ -51,14 +53,15 @@ path有属性stroke-dasharray和stroke-dashoffset
 offset是偏移  
 ![stash offset](https://github.com/Namicici/web-tech/blob/master/stash-offset.png)  
 我们可以将将弧长的stash和gap设置为弧长长度，然后再偏移弧长长度量，那么就刚好看不见对应的弧长，然后让对应的offset量不断减少，就可以看见对应的圆环从起点慢慢进入  
-`<animate
+`  
+<animate
     attributeName="stroke-dashoffset"
     :form="item2.dash"
     to="3"
     :begin="item2.begin"
     :dur="item2.dur"
     fill="freeze"
-/>
+/>  
 `  
 动画中的begin可以指定上一个动画结束后开始，to值不为0可以出现间隙，fill为freeze动画完成后保持完成时的状态  
 
