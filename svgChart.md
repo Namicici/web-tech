@@ -37,9 +37,9 @@ endPoint.y = e.y - r * Math.cos(a * Math.PI / 180)
 animate'元素用于随着时间的推移对单个属性或属性进行动画化  
 所以我们需要对属性做动画，那么对什么属性做动画呢？  
 ![stash](https://github.com/Namicici/web-tech/blob/master/stash.png)
-path有属性stroke-dasharray和stroke-dashoffset
-`<?xml version="1.0" encoding="UTF-8"?>  
-<svg width="224px" height="223px" viewBox="0 0 224 223" version="1.1"   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">  
+path有属性stroke-dasharray和stroke-dashoffset   
+`<?xml version="1.0" encoding="UTF-8"?>   
+<svg width="224px" height="223px" viewBox="0 0 224 223" version="1.1"   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">  
     <title>stash</title>  
     <desc>Created with Sketch.</desc>  
     <defs></defs>  
