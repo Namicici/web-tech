@@ -27,7 +27,7 @@
 1. 圆环的直径取画布宽度的1/3，这样实际圆环的直径就是画布宽度的1/3，`diameter = width/3`
 2. 设置厚度值为STROKE_WIDTH
 3. 由于有选中效果，同角度放射效果；我们实际还会再画一个选中效果圆环，选中效果环和实际圆环中间的间隔为GAP，厚度一样；这样选中圆环直径`selectDiameter = diameter + strokeWidth*2 + GAP*2`  
-![圆环坐标尺寸](https://github.com/Namicici/web-tech/blob/master/pie.svg)  
+![圆环坐标尺寸](https://github.com/Namicici/web-tech/blob/master/pie.png)  
 根据以上数据我们可以获得两个圆的起点坐标，圆心坐标
 4. 根据传递过来的数据我们可以得出每一份数据再全部数据中所占的比例，也就是角度；已知圆心，半径和偏移角度，可以计算出目标点坐标。
 `endPoint.x = e.x + r * Math.sin(a * Math.PI / 180)  
