@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="236px" height="255px" viewBox="0 0 236 255" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>stash-offset</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="stash-offset" transform="translate(-22.000000, 0.000000)">
+            <circle id="stash" stroke="#50E3C2" stroke-width="24" stroke-dasharray="60,50" cx="134" cy="143" r="100"></circle>
+            <circle id="stash" stroke="#F8E81C" stroke-width="24" stroke-dasharray="60,50" transform="translate(134.680225, 142.680225) rotate(-27.000000) translate(-134.680225, -142.680225) " cx="134.680225" cy="142.680225" r="100"></circle>
+            <path d="M205.5,91.5 L257.5,50.5" id="Line" stroke="#979797" stroke-linecap="square"></path>
+            <path d="M243.5,58.5 L196.5,28.5" id="Line" stroke="#979797" stroke-linecap="square"></path>
+            <path id="Line-decoration-1" d="M196.5,28.5 L203.989454,36.8395495 L207.217666,31.7820163 L196.5,28.5 Z" stroke="#979797" stroke-linecap="square"></path>
+            <path d="M175.5,64.5 L205.5,0.5" id="Line" stroke="#979797" stroke-linecap="square"></path>
+            <path id="Line-decoration-1" d="M205.5,0.5 L198.199737,9.00565488 L203.632491,11.5522581 L205.5,0.5 Z" stroke="#979797" stroke-linecap="square"></path>
+        </g>
+    </g>
+</svg>
