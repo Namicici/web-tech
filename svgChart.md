@@ -46,7 +46,7 @@ path有属性stroke-dasharray和stroke-dashoffset
     <title>stash</title>  
     <desc>Created with Sketch.</desc>  
     <defs></defs>  
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none"   fill-rule="evenodd" stroke-dasharray="60,50">  
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-dasharray="60,50">  
         <circle id="stash" stroke="#50E3C2" stroke-width="24" cx="112" cy="111" r="100"></circle>  
     </g>  
 </svg>  
@@ -56,8 +56,8 @@ offset是偏移
 ![stash offset](https://github.com/Namicici/web-tech/blob/master/stash-offset.png)  
 我们可以将将弧长的stash和gap设置为弧长长度，然后再偏移弧长长度量，那么就刚好看不见对应的弧长，然后让对应的offset量不断减少，就可以看见对应的圆环从起点慢慢进入  
 ``  
-<animate
-    attributeName="stroke-dashoffset"
+<animate  
+    attributeName="stroke-dashoffset"
     :form="item2.dash"
     to="3"
     :begin="item2.begin"
