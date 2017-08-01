@@ -33,7 +33,7 @@
 ``  
 endPoint.x = e.x + r * Math.sin(a * Math.PI / 180)  
 endPoint.y = e.y - r * Math.cos(a * Math.PI / 180)  
-``
+``   
 5. 动画  
 animate'元素用于随着时间的推移对单个属性或属性进行动画化  
 所以我们需要对属性做动画，那么对什么属性做动画呢？  
@@ -50,7 +50,8 @@ path有属性stroke-dasharray和stroke-dashoffset
         <circle id="stash" stroke="#50E3C2" stroke-width="24" cx="112" cy="111" r="100"></circle>  
     </g>  
 </svg>  
-``
+``  
+
 offset是偏移  
 ![stash offset](https://github.com/Namicici/web-tech/blob/master/stash-offset.png)  
 我们可以将将弧长的stash和gap设置为弧长长度，然后再偏移弧长长度量，那么就刚好看不见对应的弧长，然后让对应的offset量不断减少，就可以看见对应的圆环从起点慢慢进入  
@@ -63,7 +64,7 @@ offset是偏移
     :dur="item2.dur"
     fill="freeze"
 />  
-``
+``  
 动画中的begin可以指定上一个动画结束后开始，to值不为0可以出现间隙，fill为freeze动画完成后保持完成时的状态  
 
 ![动画效果](https://github.com/Namicici/web-tech/blob/master/svg-animation.gif)  
