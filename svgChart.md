@@ -2,15 +2,15 @@
 一种XML定义的开放标准的二维图形语言，可以用来描述三种类型的图形对象：矢量图形（直线，曲线构成的图形），图片和文本；支持使用js、css(包括动画)对其进行控制，并且支持事件（比如onmouseover，onclick)。ie9以下支持不太好，需要adobe的插件，其他标准浏览器支持情况较好。
 
 # 如何绘制一个环形饼图  
-1. svg的基本图形有：圆，椭圆，线，多边形，折线和矩形
+1. svg的基本图形有：圆，椭圆，线，多边形，折线和矩形  
 ![基本图形](https://github.com/Namicici/web-tech/blob/master/shape.png)  
 2. svg中涉及到画圆的方式：圆，椭圆
 3. 这些图形中属性支持圆心，半径设置等，太过简单，无法满足我们的需求
 4. svg中还有一个path，能够被填充，跟踪，剪裁；path描述了几种几何形态：
 * moveto（new point)
 * lineto(draw a straight line to)
-* curveto(draw a curve to)
-![曲线](https://github.com/Namicici/web-tech/blob/master/curve.png)
+* curveto(draw a curve to)  
+![曲线](https://github.com/Namicici/web-tech/blob/master/curve.png)  
 * arc (elliptical or circular arc)
 * closepath (close the current shape by drawing a line to the last moveto)  
 其中arc（A）表示可以画椭圆或者圆弧，符合我们需要
@@ -36,9 +36,9 @@ endPoint.y = e.y - r * Math.cos(a * Math.PI / 180)
 5. 动画  
 animate'元素用于随着时间的推移对单个属性或属性进行动画化  
 所以我们需要对属性做动画，那么对什么属性做动画呢？  
-![stash](https://github.com/Namicici/web-tech/blob/master/stash.png)
-path有属性stroke-dasharray和stroke-dashoffset   
-`<?xml version="1.0" encoding="UTF-8"?>   
+![stash](https://github.com/Namicici/web-tech/blob/master/stash.png)  
+path有属性stroke-dasharray和stroke-dashoffset   
+`<?xml version="1.0" encoding="UTF-8"?>  
 <svg width="224px" height="223px" viewBox="0 0 224 223" version="1.1"   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">  
     <title>stash</title>  
     <desc>Created with Sketch.</desc>  
@@ -59,7 +59,7 @@ offset是偏移
     :dur="item2.dur"
     fill="freeze"
 />
-`
+`  
 动画中的begin可以指定上一个动画结束后开始，to值不为0可以出现间隙，fill为freeze动画完成后保持完成时的状态  
 
 ![动画效果](https://github.com/Namicici/web-tech/blob/master/svg-animation.gif)  
