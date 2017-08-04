@@ -73,3 +73,8 @@ offset是偏移
 ![选中图例提示](https://github.com/Namicici/web-tech/blob/master/svg-legend.png)  
 这里设计矩形框和文字， 矩形可以使用rect建立，可以设置透明程度，文字需要创建文字text。  
 希望根据鼠标点击的位置来决定图例显示在哪儿，那么需要对path绑定click事件，并且记录下点击位置  
+
+# 参考  
+[官网](https://www.w3.org/TR/SVG11/intro.html#W3CCompatibility)  
+[svg研究之路](http://www.oxxostudio.tw/articles/201406/svg-05-path-2.html)  
+[轻松打开svg动画大门](https://isux.tencent.com/svg-animate.html)  
