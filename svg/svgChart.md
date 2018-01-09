@@ -67,10 +67,10 @@ offset是偏移
     ``  
 动画中的begin可以指定上一个动画结束后开始，to值不为0可以出现间隙，fill为freeze动画完成后保持完成时的状态  
 
-![动画效果](https://github.com/Namicici/web-tech/blob/master/svg/images/images/svg-animation.gif)  
+![动画效果](https://github.com/Namicici/web-tech/blob/master/svg/images/svg-animation.gif)  
 6. 接下来我们要完成选中图例提示
 
-![选中图例提示](https://github.com/Namicici/web-tech/blob/master/svg/images/images/svg-legend.png)  
+![选中图例提示](https://github.com/Namicici/web-tech/blob/master/svg/images/svg-legend.png)  
 这里设计矩形框和文字， 矩形可以使用rect建立，可以设置透明程度，文字需要创建文字text。  
 希望根据鼠标点击的位置来决定图例显示在哪儿，那么需要对path绑定click事件，并且记录下点击位置  
 
