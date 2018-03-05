@@ -24,6 +24,7 @@
 ![我们目前css中是如何使用逻辑像素和渲染比的](https://github.com/Namicici/web-tech/blob/master/adaptive/images/css-media.jpg)  
 * device-width指的就是逻辑宽度，是apple定义的Points的宽度；在移动端css中的px表示的是逻辑像素，在dpr为2的时候css中的1px实际渲染的时候对应到了2个物理像素上面去了
 
+![vw方案-vue中vw适配方案](https://www.w3cplus.com/mobile/vw-layout-in-vue.html)
 
 ## iPhone 6 plus 特殊 如何解释  
 ![iPhone参数](https://github.com/Namicici/web-tech/blob/master/adaptive/images/iphoneSum.jpg) 
