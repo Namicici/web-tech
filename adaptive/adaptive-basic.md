@@ -20,6 +20,7 @@
 * 对于问题一，rem是相对于html的font-size尺寸，比如font-size是16px，那么1rem就是16px
 * 对于问题二：  
 ![手淘适配方案](https://github.com/amfe/article/issues/17)  
+![手淘方案详解](http://div.io/topic/1092)
     
 ![我们目前css中是如何使用逻辑像素和渲染比的](https://github.com/Namicici/web-tech/blob/master/adaptive/images/css-media.jpg)  
 * device-width指的就是逻辑宽度，是apple定义的Points的宽度；在移动端css中的px表示的是逻辑像素，在dpr为2的时候css中的1px实际渲染的时候对应到了2个物理像素上面去了
