@@ -20,10 +20,18 @@
 * 对于问题一，rem是相对于html的font-size尺寸，比如font-size是16px，那么1rem就是16px
 * 对于问题二：  
 ![手淘适配方案](https://github.com/amfe/article/issues/17)  
-![手淘方案详解](http://div.io/topic/1092)
+![手淘方案详解](http://div.io/topic/1092)  
+手淘有两点注意的地方：  
+1. 为何要在viewport中设置scale  
+2. 基准rem的计算  
+3. 字体大小如何处理  
+* 对于问题1， 考虑iphone6 dpr为2， 视觉稿是750的，如果给出了一个border是1px那么实际在css中应该使用0.5px（逻辑宽度是375），但是0.5px渲染的时候会变成0。解决这种情况的办法就是：viewport中的width设置为750，但是缩小0.5（1/2）。  
+* 对于问题2我们只需要规定一种比例算法就好，手淘中是逻辑宽度*Dpr/10，所以对于iphone6来说rem是75px  
+*  手淘对字体大小认为不同设备字体大小一样，不安比例缩放，也就是说不用rem来表示，但是由于不同的dpr页面有缩放，所以需要根据dpr将字体再缩放回去
     
 ![我们目前css中是如何使用逻辑像素和渲染比的](https://github.com/Namicici/web-tech/blob/master/adaptive/images/css-media.jpg)  
 * device-width指的就是逻辑宽度，是apple定义的Points的宽度；在移动端css中的px表示的是逻辑像素，在dpr为2的时候css中的1px实际渲染的时候对应到了2个物理像素上面去了
+* 我们的做法没有手淘那么精细，但是够用  
 
 ![vw方案-vue中vw适配方案](https://www.w3cplus.com/mobile/vw-layout-in-vue.html)
 
