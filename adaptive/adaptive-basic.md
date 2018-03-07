@@ -30,7 +30,7 @@
 *  手淘对字体大小认为不同设备字体大小一样，不安比例缩放，也就是说不用rem来表示，但是由于不同的dpr页面有缩放，所以需要根据dpr将字体再缩放回去  
 
 ## 参考
-但是这里有一些特殊情况，如果viewport中不设置width，那么缩放的时候是采用默认分辨率缩放的，对于iphone6来说逻辑像素*Dpr=物理像素，但是对于一些逻辑像素*Dpr != 物理像素的情况呢![参见iphone6+的情况](https://github.com/Namicici/web-tech/blob/master/adaptive/images/css-media.jpg)  
+但是这里有一些特殊情况，如果viewport中不设置width，那么缩放的时候是采用默认分辨率缩放的，对于iphone6来说逻辑像素*Dpr=物理像素，但是对于一些逻辑像素*Dpr != 物理像素的情况呢  
 [在谈retina下1px的问题](https://www.w3cplus.com/css/fix-1px-for-retina.html)  
 其中iphone6+是在1242的基础上缩小了约13%的  
 
