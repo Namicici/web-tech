@@ -26,16 +26,29 @@
 2. 基准rem的计算  
 3. 字体大小如何处理  
 * 对于问题1， 考虑iphone6 dpr为2， 视觉稿是750的，如果给出了一个border是1px那么实际在css中应该使用0.5px（逻辑宽度是375），但是0.5px渲染的时候会变成0。解决这种情况的办法就是：viewport中的width设置为750，但是缩小0.5（1/2）。  
-* 对于问题2我们只需要规定一种比例算法就好，手淘中是逻辑宽度*Dpr/10，所以对于iphone6来说rem是75px  
-*  手淘对字体大小认为不同设备字体大小一样，不安比例缩放，也就是说不用rem来表示，但是由于不同的dpr页面有缩放，所以需要根据dpr将字体再缩放回去
-    
+* 对于问题2我们只需要规定一种比例算法就好，手淘中是逻辑宽度*Dpr/10，所以对于iphone6来说rem是75px（这里乘了Dpr就是因为1px的问题可能页面缩放了）  
+*  手淘对字体大小认为不同设备字体大小一样，不安比例缩放，也就是说不用rem来表示，但是由于不同的dpr页面有缩放，所以需要根据dpr将字体再缩放回去  
+
+## 参考
+但是这里有一些特殊情况，如果viewport中不设置width，那么缩放的时候是采用默认分辨率缩放的，对于iphone6来说逻辑像素*Dpr=物理像素，但是对于一些逻辑像素*Dpr != 物理像素的情况呢![参见iphone6+的情况](https://github.com/Namicici/web-tech/blob/master/adaptive/images/css-media.jpg)!(https://www.w3cplus.com/css/fix-1px-for-retina.html)  
+其中iphone6+是在1242的基础上缩小了约13%的  
+
+![不做缩放，指通过改变root font size来做](http://blog.csdn.net/weihaifeng163/article/details/66974490)  
+核心的算法就是 realWidth/designWidth * rem2px / defaultFontSize * 100%  
+其中realWidth就是实际设备的逻辑宽度， designWidth是视觉稿的宽度， rem2px是视觉稿宽度的目标font-size， defaultFontSize是浏览器默认root字体大小  
+比如假设750下的1rem=100px，那么对于iphone6来说：375/750*100/16*100%=321.5%，那么html(font-size:312.5%;)  
+如果不用比例，而是用px，315/750*100= 50px; 这个时候1rem = 50px；如果750的视觉高中设计的margin-top:20px; 那么转化为rem:20/50=0.4rem  
+
 ![我们目前css中是如何使用逻辑像素和渲染比的](https://github.com/Namicici/web-tech/blob/master/adaptive/images/css-media.jpg)  
-* device-width指的就是逻辑宽度，是apple定义的Points的宽度；在移动端css中的px表示的是逻辑像素，在dpr为2的时候css中的1px实际渲染的时候对应到了2个物理像素上面去了
-* 我们的做法没有手淘那么精细，但是够用  
+那么我们的程序中是如何设计的呢？  
+我们的方法类似上面的这种情况，375/750*200=100px,这里多了rem2px的目标参数是200（所谓的目标参数就是跟视觉稿尺寸一致的时候的rem to px的转化值，这个值是可以人为设定的）    
+但是对于414的屏幕: 414/750*200 = 111x，但是我们用了100px，我们取的都是近似值，不过准确点的话可以近似到110px（个人社区h5）   
+理论上开发的时候可以选择任何一个屏幕作为开发参考，如果设计图是750的，开发选择了iphone6+，font-size：110px，那么视觉高上的20px应该转化为 20/110～=0.1818rem；如果采用iphone6作为开发参考屏就是0.2rem。其实是有一点儿差距的，有几像素的差异。其中对于1080的屏幕为140px这个没懂？？？？桌面PC上的适配？？？  
 
 ![vw方案-vue中vw适配方案](https://www.w3cplus.com/mobile/vw-layout-in-vue.html)
+1vw为1%  
+这里涉及的就是转化问题，使用postcss  
 
-## iPhone 6 plus 特殊 如何解释  
+## iPhone 6 plus 特殊 如何解释   
 ![iPhone参数](https://github.com/Namicici/web-tech/blob/master/adaptive/images/iphoneSum.jpg) 
-
 
