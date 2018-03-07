@@ -12,7 +12,7 @@
 4. dpi： 每英寸的点数。值越大打印越细腻  
 5. Points：iPhone中引入的坐标点，为了便于设计的统一。所以dpi和ppi中间有一个渲染比例，1个pt根据渲染比例的不同可能渲染到2/3个像素上去，以此可以用一份设计稿适配不同的屏幕  
 6. device-pixel-ratio：就是上面提到的渲染比  
-7. viewport视窗，在桌面浏览器中viewport就是浏览器的窗口大小；但是在移动端有点儿复杂，引入了两个概念：virtual viewport和layout viewport；其中virtual viewport就是屏幕上可以看到的部分，而layout viewport就是css布局采用的宽度（PC的页面到移动端就有滚动条了）， [默认情况下的视窗大小](https://github.com/Namicici/web-tech/blob/master/adaptive/images/viewport.jpg)  
+7. viewport视窗，在桌面浏览器中viewport就是浏览器的窗口大小；但是在移动端有点儿复杂，引入了两个概念：virtual viewport和layout viewport；其中virtual viewport就是屏幕上可以看到的部分，而layout viewport就是css布局采用的宽度（PC的页面到移动端就有滚动条了）， ![默认情况下的视窗大小](https://github.com/Namicici/web-tech/blob/master/adaptive/images/viewport.png)  
 
 # 我们说的移动端适配是适配什么  
 比如UI出了iphone6下的视觉稿，在其他设备上元素比例保持跟iphone6一致，注意这里是比例。如果全部用px，在iphone其他幸好的元素大小（尺寸）跟iphone6一致，但是在iphone4/5下屏幕更小，希望是元素比例缩小，这样协调一些，所以这里涉及了适配问题。  
@@ -30,7 +30,8 @@
 *  手淘对字体大小认为不同设备字体大小一样，不安比例缩放，也就是说不用rem来表示，但是由于不同的dpr页面有缩放，所以需要根据dpr将字体再缩放回去  
 
 ## 参考
-但是这里有一些特殊情况，如果viewport中不设置width，那么缩放的时候是采用默认分辨率缩放的，对于iphone6来说逻辑像素*Dpr=物理像素，但是对于一些逻辑像素*Dpr != 物理像素的情况呢[参见iphone6+的情况](https://github.com/Namicici/web-tech/blob/master/adaptive/images/css-media.jpg)!(https://www.w3cplus.com/css/fix-1px-for-retina.html)  
+但是这里有一些特殊情况，如果viewport中不设置width，那么缩放的时候是采用默认分辨率缩放的，对于iphone6来说逻辑像素*Dpr=物理像素，但是对于一些逻辑像素*Dpr != 物理像素的情况呢![参见iphone6+的情况](https://github.com/Namicici/web-tech/blob/master/adaptive/images/css-media.jpg)  
+[在谈retina下1px的问题](https://www.w3cplus.com/css/fix-1px-for-retina.html)  
 其中iphone6+是在1242的基础上缩小了约13%的  
 
 [不做缩放，指通过改变root font size来做](http://blog.csdn.net/weihaifeng163/article/details/66974490)  
