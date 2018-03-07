@@ -50,5 +50,5 @@
 这里涉及的就是转化问题，使用postcss  
 
 ## iPhone 6 plus 特殊 如何解释   
-[iPhone参数](https://github.com/Namicici/web-tech/blob/master/adaptive/images/iphoneSum.jpg) 
+![iPhone参数](https://github.com/Namicici/web-tech/blob/master/adaptive/images/iphoneSum.jpg) 
 
