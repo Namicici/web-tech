@@ -17,6 +17,8 @@
 
 另外这里有一个细节``<meta name="viewport" content="width=device-width, initial-scale=1" />``这里的viewport的width设置为了device-width，可以不设置么？或者用其他的属性？  
 
+另外现在也有flex布局，参考[flex布局介绍](https://github.com/PawelLin/css-layout)  
+
 # 移动端的适配问题  
 
 ## 参考  
