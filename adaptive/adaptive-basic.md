@@ -1,13 +1,28 @@
 # PC端的自适应是怎么回事儿  
-媒体查询，区分出屏幕  
-使用百分比  
-使用浮动块级元素  
+[自适应网页设计](http://www.ruanyifeng.com/blog/2012/05/responsive_web_design.html)  
+所谓自适应就是自动识别屏幕宽度，并做相应调整。这里的屏幕宽度主要是指屏幕像素。  
+比如在不同的分辨率下呈现不一样的布局：  
+![大于1300像素看起来像这样](https://github.com/Namicici/web-tech/blob/master/adaptive/images/>1300.jpg)  
+![600-1300之间像这样](https://github.com/Namicici/web-tech/blob/master/adaptive/images/600-1300.jpg)
+![400-600之间像这样](https://github.com/Namicici/web-tech/blob/master/adaptive/images/400-600.jpg)
+![小于400像这样](https://github.com/Namicici/web-tech/blob/master/adaptive/images/<400.jpg)  
+所以这里涉及几个问题：  
+1. 要分辨出当前窗口的分辨率  
+2. 元素要随着屏幕像素大小改变  
+3. 对于内容超过屏幕可以容纳的需要自动换行显示  
+解决上诉几个问题的方案：  
+1. 媒体查询，区分出屏幕；这在css中可以解决@media screen and (max-device-width: 400px){XXXXXX}
+2. 使用百分比;不能使用固定像素，因为元素的长款应该根据屏幕的大小作出相应调整。所以width: x%要使用百分比来表示  
+3. 使用浮动块级元素，防止溢出出现滚动条；float:left.  
+
+另外这里有一个细节``<meta name="viewport" content="width=device-width, initial-scale=1" />``这里的viewport的width设置为了device-width，可以不设置么？或者用其他的属性？  
+
 # 移动端的适配问题  
 
 ## 参考  
 [dpi、ppi、尺寸、分辨率等关系](http://www.cnblogs.com/liuwenbohhh/p/4522852.html)  
 
-## 概念理解
+## 概念理解  
 1. 尺寸，iPhone6: 4.7寸是指可视屏幕对角线的长度， 可视区：2.3 * 4.1  iPhone 6 plus 5.5寸， 2.7 * 4.8  
 2. 分辨率：横竖方向上的最大像素数， 分辨率大小本身不能反应屏幕的好坏，得结合尺寸使用，相同尺寸下分辨率越大说明显示越细腻。 
 3. ppi： 每英寸的像素数。值越大显示越细腻  
