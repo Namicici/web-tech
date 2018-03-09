@@ -3,17 +3,18 @@
 所谓自适应就是自动识别屏幕宽度，并做相应调整。这里的屏幕宽度主要是指屏幕像素。  
 比如在不同的分辨率下呈现不一样的布局：  
 ![大于1300像素看起来像这样](https://github.com/Namicici/web-tech/blob/master/adaptive/images/>1300.jpg)  
-![600-1300之间像这样](https://github.com/Namicici/web-tech/blob/master/adaptive/images/600-1300.jpg)
+![600-1300之间像这样](https://github.com/Namicici/web-tech/blob/master/adaptive/images/600-1300.jpg)  
 ![400-600之间像这样](https://github.com/Namicici/web-tech/blob/master/adaptive/images/400-600.jpg)
 ![小于400像这样](https://github.com/Namicici/web-tech/blob/master/adaptive/images/<400.jpg)  
-所以这里涉及几个问题：  
+* 所以这里涉及几个问题：  
 1. 要分辨出当前窗口的分辨率  
 2. 元素要随着屏幕像素大小改变  
-3. 对于内容超过屏幕可以容纳的需要自动换行显示  
-解决上诉几个问题的方案：  
+3. 对于内容超过屏幕可以容纳的需要自动换行显示    
+* 解决上诉几个问题的方案：  
 1. 媒体查询，区分出屏幕；这在css中可以解决@media screen and (max-device-width: 400px){XXXXXX}
 2. 使用百分比;不能使用固定像素，因为元素的长款应该根据屏幕的大小作出相应调整。所以width: x%要使用百分比来表示  
 3. 使用浮动块级元素，防止溢出出现滚动条；float:left.  
+对于同一个元素如果要在各个屏幕下都显示出对应的布局，那么意味着对同一个元素作用多种屏幕下的css；比如1300以上的屏幕有css类grid-lg-2，600-1300的有grid-md-4, 600以下有grid-xs-10，这些css中的类分别放在对应的媒体查询中。那么使用的时候就需要把这三个类都作用于对应的元素中，当屏幕发生变化的时候@media检测到对应屏幕后，对应的class生效而且他屏幕下的class不生效，这样就实现了不同屏幕下看到的元素的尺寸在响应变化以适应屏幕布局。  
 
 另外这里有一个细节``<meta name="viewport" content="width=device-width, initial-scale=1" />``这里的viewport的width设置为了device-width，可以不设置么？或者用其他的属性？  
 
