@@ -39,23 +39,28 @@ Retina Display 意为视网膜显示屏，名称为苹果独享（已注册商�
 7. viewport视窗，在桌面浏览器中viewport就是浏览器的窗口大小；但是在移动端有点儿复杂，引入了两个概念：virtual viewport和layout viewport；其中virtual viewport就是屏幕上可以看到的部分，而layout viewport就是css布局采用的宽度（PC的页面到移动端就有滚动条了）， ![默认情况下的视窗大小](https://github.com/Namicici/web-tech/blob/master/adaptive/images/viewport.png)  
 
 # 我们说的移动端适配是适配什么  
-比如UI出了iphone6下的视觉稿，在其他设备上元素比例保持跟iphone6一致，注意这里是比例。如果全部用px，在iphone其他幸好的元素大小（尺寸）跟iphone6一致，但是在iphone4/5下屏幕更小，希望是元素比例缩小，这样协调一些，所以这里涉及了适配问题。  
+比如UI出了iphone6下的视觉稿，在其他设备上元素比例保持跟iphone6一致，注意这里是比例。  
+![如果仅仅是用px不能做到适配](https://github.com/Namicici/web-tech/blob/master/adaptive/images/justPx.png)  
+图中是一个414px的块，在iphone6 plus下刚好占满屏幕，如果保持像素不变，那么在iphone6下就会出现滚动条。我们希望的适配是在一种尺寸下的设计图到其他设备上之后可以尽量保持元素间的比例一致。    
 我们需要解决两个问题，一是找到一种可以按比例缩放的中间单位（px是不行了，因为用px后尺寸大小会在不同屏幕下一样大小，iphone就是这样做的），二是如何设定缩放比例  
-* 对于问题一，rem是相对于html的font-size尺寸，比如font-size是16px，那么1rem就是16px
-* 对于问题二：  
+* 对于问题一：rem是相对于html的font-size尺寸，比如font-size是16px，那么1rem就是16px
+* 对于问题二：
 [手淘适配方案](https://github.com/amfe/article/issues/17)  
 [手淘方案详解](http://div.io/topic/1092)  
+相当于screenWidth/10，假设设计图是750，那么在750的屏幕下1rem=75px，在375屏幕下1rem=37.5px，但是存在这样的一个问题就是屏幕是375px的宽度，但是分辨率却是750（也就是dpi=2），那么淘宝的方案是再根据dpi做缩放。  
 手淘有两点注意的地方：  
 1. 为何要在viewport中设置scale  
 2. 基准rem的计算  
 3. 字体大小如何处理  
-* 对于问题1， 考虑iphone6 dpr为2， 视觉稿是750的，如果给出了一个border是1px那么实际在css中应该使用0.5px（逻辑宽度是375），但是0.5px渲染的时候会变成0。解决这种情况的办法就是：viewport中的width设置为750，但是缩小0.5（1/2）。  
-* 对于问题2我们只需要规定一种比例算法就好，手淘中是逻辑宽度*Dpr/10，所以对于iphone6来说rem是75px（这里乘了Dpr就是因为1px的问题可能页面缩放了）  
-*  手淘对字体大小认为不同设备字体大小一样，不安比例缩放，也就是说不用rem来表示，但是由于不同的dpr页面有缩放，所以需要根据dpr将字体再缩放回去  
+* 对于问题1， 考虑iphone6 dpr为2， 视觉稿是750的，如果给出了一个border是1px那么实际在css中应该使用0.5px（逻辑宽度是375），但是0.5px渲染的时候会变成0。解决这种情况的办法就是：在viewport中设置缩放比例0.5，相当于还原到了750的画布下。  
+![缩放与不缩放对应的1px问题](https://github.com/Namicici/web-tech/blob/master/adaptive/images/shoutao.png)  
+* 对于问题2我们只需要规定一种比例算法就好，手淘中因为缩放了1/dpr，所以视口宽度相当于设备宽度*Dpr/10，所以对于iphone6来说rem是75px（这里乘了Dpr就是因为1px的问题可能页面缩放了）  
+*  手淘对默认字体的处理只考虑DPR的不同，不考虑设备尺寸的  
 
 ## 对于图片问题  
 对于位图而言，像素对应的是物理像素（跟我们上面讲的css像素不同），那么对于200px的图片，在dpr为1的时候200个像素一一对应。但是对于dpr>1的情况，200像素实际会对应到200*4=800个像素上面去，那么对于位图中的1一个像素就会就近取色，然后在对应到4个物理像素上去，由于是就近取色的，所以存在失真导致图片模糊  
-### 参考
+
+## 其他方案
 但是这里有一些特殊情况，如果viewport中不设置width，那么缩放的时候是采用默认分辨率缩放的，对于iphone6来说逻辑像素*Dpr=物理像素，但是对于一些逻辑像素*Dpr != 物理像素的情况呢  
 [在谈retina下1px的问题](https://www.w3cplus.com/css/fix-1px-for-retina.html)  
 其中iphone6+是在1242的基础上缩小了约13%的  
