@@ -71,7 +71,7 @@ Retina Display 意为视网膜显示屏，名称为苹果独享（已注册商�
 比如假设750下的1rem=100px，那么对于iphone6来说：375/750*100/16*100%=321.5%，那么html(font-size:312.5%;)  
 如果不用比例，而是用px，315/750*100= 50px; 这个时候1rem = 50px；如果750的视觉高中设计的margin-top:20px; 那么转化为rem:20/200=0.2rem  
 
-![我们目前css中是如何使用逻辑像素和渲染比的](https://github.com/Namicici/web-tech/blob/master/adaptive/images/css-media.jpg)  
+![我们目前css中是如何使用逻辑像素和渲染比的](https://github.com/Namicici/web-tech/blob/master/adaptive/images/css-media.png)  
 那么我们的程序中是如何设计的呢？  
 我们的方法类似上面的这种情况，375/750*200=100px,这里多了rem2px的目标参数是200（所谓的目标参数就是跟视觉稿尺寸一致的时候的rem to px的转化值，这个值是可以人为设定的）    
 但是对于414的屏幕: 414/750*200 = 111x，但是我们用了100px，我们取的都是近似值，不过准确点的话可以近似到110px（个人社区h5）   
