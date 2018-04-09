@@ -2,7 +2,7 @@
 [自适应网页设计](http://www.ruanyifeng.com/blog/2012/05/responsive_web_design.html)  
 所谓自适应就是自动识别屏幕宽度，并做相应调整。这里的屏幕宽度主要是指屏幕像素。  
 比如在不同的分辨率下呈现不一样的布局：  
-!(https://github.com/Namicici/web-tech/blob/master/adaptive/images/response.png)   
+![](https://github.com/Namicici/web-tech/blob/master/adaptive/images/response.png)   
 * 所以这里涉及几个问题：  
 1. 要分辨出当前窗口的分辨率  
 2. 元素要随着屏幕像素大小改变  
@@ -26,15 +26,15 @@
 
 ## 概念理解  
 1. 尺寸，iPhone6: 4.7寸是指可视屏幕对角线的长度， 可视区：2.3 * 4.1  iPhone 6 plus 5.5寸， 2.7 * 4.8  
-!(https://github.com/Namicici/web-tech/blob/master/adaptive/images/inch.png)  
+![](https://github.com/Namicici/web-tech/blob/master/adaptive/images/inch.png)  
 2. 分辨率：横竖方向上的最大像素数， 分辨率大小本身不能反应屏幕的好坏，得结合尺寸使用，相同尺寸下分辨率越大说明显示越细腻。 
 3. ppi： 每英寸的像素数。值越大显示越细腻  
 Retina Display 意为视网膜显示屏，名称为苹果独享（已注册商标），其他公司不能使用此名称，根据科学研究发现，人眼每英寸最对可以看到大约 300 个像素，多了就分辨不出来了，也就是 ppi 的值为 300，Retina Display 所表示的就是，ppi 大于 300 的显示屏。  
-!(https://github.com/Namicici/web-tech/blob/master/adaptive/images/retina.png)  
+![](https://github.com/Namicici/web-tech/blob/master/adaptive/images/retina.png)  
 4. dpi： dpi 全称 dots per inch，意为每英寸的点数，在打印行业，一般指的是每英寸墨滴的数量，dpi 的数值越小，打印出来的质量越差，在 iPhone 屏幕设计中，和 Points 数值有关。 
 5. Points：iPhone中引入的坐标点，为了便于设计的统一。所以dpi和ppi中间有一个渲染比例。  
 对于同样大小的区域，物理像素的个数根据屏幕的不同有不同，我们在css中的1px是指点素1px，实际对应的物理像素可能是1个像素也可能是4个像素（根据渲染比不同而不同）  
-!(https://github.com/Namicici/web-tech/blob/master/adaptive/images/points.png)  
+![](https://github.com/Namicici/web-tech/blob/master/adaptive/images/points.png)  
 6. device-pixel-ratio：就是上面提到的渲染比  
 7. viewport视窗，在桌面浏览器中viewport就是浏览器的窗口大小；但是在移动端有点儿复杂，引入了两个概念：virtual viewport和layout viewport；其中virtual viewport就是屏幕上可以看到的部分，而layout viewport就是css布局采用的宽度（PC的页面到移动端就有滚动条了）， ![默认情况下的视窗大小](https://github.com/Namicici/web-tech/blob/master/adaptive/images/viewport.png)  
 
